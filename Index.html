@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Boutique — Starter</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">Boutique</h1>
+      <nav class="nav">
+        <button id="cart-toggle" class="btn cart-btn" aria-haspopup="dialog" aria-controls="cart">
+          Cart (<span id="cart-count">0</span>)
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="products" class="products-grid" aria-live="polite">
+      <!-- Products rendered here -->
+    </section>
+  </main>
+
+  <!-- Cart sidebar -->
+  <aside id="cart" class="cart" aria-hidden="true" role="dialog" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button id="cart-close" class="btn btn-ghost" aria-label="Close cart">✕</button>
+    </div>
+    <div id="cart-items" class="cart-items">
+      <!-- Cart items -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-totals">
+        <div>Subtotal:</div>
+        <div id="cart-total">$0.00</div>
+      </div>
+      <button id="checkout-btn" class="btn btn-primary" disabled>Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Checkout modal -->
+  <div id="checkout-modal" class="modal" aria-hidden="true" role="dialog" aria-label="Checkout">
+    <div class="modal-content">
+      <button id="checkout-close" class="btn btn-ghost close-modal" aria-label="Close">✕</button>
+      <h2>Delivery & Payment</h2>
+      <form id="checkout-form">
+        <fieldset>
+          <legend>Contact</legend>
+          <label>
+            Full name
+            <input name="name" type="text" required />
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" required />
+          </label>
+          <label>
+            Phone
+            <input name="phone" type="tel" />
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Delivery address</legend>
+          <label>
+            Address line 1
+            <input name="address1" type="text" required />
+          </label>
+          <label>
+            Address line 2
+            <input name="address2" type="text" />
+          </label>
+          <label class="two-col">
+            <span>
+              City
+              <input name="city" type="text" required />
+            </span>
+            <span>
+              State / Province
+              <input name="state" type="text" />
+            </span>
+          </label>
+          <label class="two-col">
+            <span>
+              Postal code
+              <input name="zip" type="text" required />
+            </span>
+            <span>
+              Country
+              <input name="country" type="text" required />
+            </span>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Notes</legend>
+          <label>
+            Delivery notes
+            <textarea name="notes" rows="3" placeholder="Leave at the front door..."></textarea>
+          </label>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Place order</button>
+          <button type="button" id="checkout-cancel" class="btn btn-ghost">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Order confirmation -->
+  <div id="order-confirmation" class="modal" aria-hidden="true" role="dialog" aria-label="Order confirmation">
+    <div class="modal-content">
+      <button id="confirm-close" class="btn btn-ghost close-modal" aria-label="Close">✕</button>
+      <h2>Thank you — order received</h2>
+      <div id="order-summary"></div>
+      <div class="form-actions">
+        <button id="confirm-done" class="btn btn-primary">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Boutique — Starter</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
